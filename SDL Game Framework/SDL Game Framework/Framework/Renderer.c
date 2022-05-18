@@ -47,6 +47,7 @@ void Renderer_DrawTextSolid(const Text* text, int32 x, int32 y, SDL_Color color)
 	SDL_RenderCopy(g_App.Renderer, texture, NULL, &rect);
 
 	SDL_FreeSurface(surface);
+	SDL_DestroyTexture(texture);
 }
 
 void Renderer_DrawTextShaded(const Text* text, int32 x, int32 y, SDL_Color foreground, SDL_Color background)
@@ -59,6 +60,7 @@ void Renderer_DrawTextShaded(const Text* text, int32 x, int32 y, SDL_Color foreg
 	SDL_RenderCopy(g_App.Renderer, texture, NULL, &rect);
 
 	SDL_FreeSurface(surface);
+	SDL_DestroyTexture(texture);
 }
 
 
