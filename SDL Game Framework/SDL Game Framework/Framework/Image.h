@@ -35,3 +35,5 @@ void Image_LoadImage(Image* image, const char* filename);
 /// <param name="image">이미지 객체</param>
 /// <param name="alpha">파일 이름</param>
 void Image_SetAlphaValue(Image* image, uint8 alpha);
+
+void Image_Choice(Image* image[]);

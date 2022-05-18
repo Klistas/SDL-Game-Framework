@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Image.h"
 #include "App.h"
-
+#include "Input.h"
 bool Image_Init(void)
 {
 	int32 imageFlag = IMG_INIT_PNG | IMG_INIT_JPG;
@@ -36,4 +36,21 @@ void Image_LoadImage(Image* image, const char* filename)
 void Image_SetAlphaValue(Image* image, uint8 alpha)
 {
 	SDL_SetTextureAlphaMod(image->Texture, alpha);
+}
+
+int32 Count;
+
+void Image_Choice(Image* image)
+{
+	for (int32 i = 0; i < 3; i++)
+	{
+		Image_SetAlphaValue(image, 50);
+		if (Count == i)
+		{
+			Image_SetAlphaValue(image, 200);
+		}
+
+		
+	}
+
 }

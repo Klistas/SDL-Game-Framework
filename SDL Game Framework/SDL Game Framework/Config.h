@@ -2,7 +2,7 @@
 #pragma once
 
 // 창의 크기
-#define WINDOW_WIDTH	1280
+#define WINDOW_WIDTH	1080
 #define WINDOW_HEIGHT	720
 
 // 애셋 경로
