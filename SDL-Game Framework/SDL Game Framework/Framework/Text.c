@@ -51,7 +51,8 @@ void Text_CreateMoveText(Text* text, const char* fontFile, int32 fontSize, const
 				i++;
 			Text_CreateText(text, fontFile, fontSize, str, i);
 			elapsedTime = 0.0f;
-
+			if(i > length + 10)
+				i = 0;
 		}
 
 }

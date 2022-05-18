@@ -56,6 +56,3 @@ void Image_Choice(Image* image, int32 Count)
 	}
 
 }
-
-
-Renderer_DrawImage(&data->choice[i], (i * 350) + 50, 300);

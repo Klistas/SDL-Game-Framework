@@ -51,7 +51,7 @@ void update_title(void)
 	
 	
 	data->FontSize = 50;
-	Text_CreateMoveText(&data->Text1, "d2coding.ttf", data->FontSize, L"T A K E N", 8, 0.5f);
+	Text_CreateMoveText(&data->Text1, "d2coding.ttf", data->FontSize, L"T A K E N", 8, 0.05f);
 
 
 
@@ -347,9 +347,8 @@ void update_3Scene(void)
 {
 	_3SceneData* data = (_3SceneData*)g_Scene.Data;
 	
-		Text_CreateMoveText(&data->Text[Count], "d2coding.ttf", 25, str3[Count], wcslen(str3[0]), 0.5);
-		Text_CreateMoveText(&data->Text[Count], "d2coding.ttf", 25, str3[Count], wcslen(str3[1]), 0.5);
-		Text_CreateMoveText(&data->Text[Count], "d2coding.ttf", 25, str3[Count], wcslen(str3[2]), 0.5);
+		Text_CreateMoveText(&data->Text[Count], "d2coding.ttf", 25, str3[Count], wcslen(str3[Count]), 0.07f);
+
 	
 
 	for (int32 i = 0; i < 3; i++)
@@ -392,10 +391,12 @@ void release_3Scene(void)
 {
 	_3SceneData* data = (_3SceneData*)g_Scene.Data;
 
-	for (int32 i = 0; i < 3; i++)
-	{
-		Text_FreeText(&data->Text[i]);
-	}
+	
+		Text_FreeText(&data->Text[0]);
+		Text_FreeText(&data->Text[1]);
+		Text_FreeText(&data->Text[2]);
+		
+
 
 	
 
@@ -458,18 +459,9 @@ void render_4Scene(void)
 	
 	Renderer_DrawImage(&data->index4, 0, 0);
 	Input_Choice(VK_LEFT, VK_RIGHT);
-	//이미지 선택지
-	for (int i = 0; i < 3; i++)
-	{
-		Image_SetAlphaValue(&data->choice[i], 50);
-		if (Count == i)
-		{
-			Image_SetAlphaValue(&data->choice[i], 200);
-		}
-
-		Renderer_DrawImage(&data->choice[i], (i * 350) + 50, 300);
-	}
-
+	
+	Image_Choice(&data->choice, Count);//이미지 선택지
+	
 	
 
 
@@ -482,8 +474,7 @@ void release_4Scene(void)
 	_4SceneData* data = (_4SceneData*)g_Scene.Data;
 
 
-	Text_FreeText(&data->Text1);
-	Text_FreeText(&data->Text2);
+	
 
 	SafeFree(g_Scene.Data);
 }
